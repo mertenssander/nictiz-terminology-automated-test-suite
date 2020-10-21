@@ -123,3 +123,7 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Pytest folders
+.pytest_cache
+__pycache__
