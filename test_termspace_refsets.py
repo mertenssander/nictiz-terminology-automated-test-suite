@@ -1,11 +1,12 @@
+import os
 from urllib.request import urlopen, Request
 from urllib import parse
 import json
 
 def test_retrieve_token():
     payload = {
-        'username' : 'test_acc',
-        'password' : 'test_pass',
+        'username' : os.getenv('termspace_bot_user'),
+        'password' : os.getenv('termspace_bot_pass'),
         }
     data = parse.urlencode(payload).encode('ascii')
     req = Request('https://nl-prod-main.termspace.com/api/users/login', data)
