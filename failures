@@ -1,0 +1,2020 @@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = ['110851000146103']
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+>           assert termspace_member_count.get(key) == snowstorm_member_count.get('memberCountsByReferenceSet').get(key)
+E           AttributeError: 'int' object has no attribute 'get'
+
+test_termspace_refsets.py:39: AttributeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = ['110851000146103']
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+>           assert termspace_member_count.get(key) == snowstorm.get('memberCountsByReferenceSet').get(key)
+E           assert 5954 == 6010
+E             +5954
+E             -6010
+
+test_termspace_refsets.py:39: AssertionError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = ['110851000146103']
+    
+        termspace_member_count = {}
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+>           termspace = json.loads(urlopen(req).read())
+
+test_termspace_refsets.py:33: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.6/json/__init__.py:354: in loads
+    return _default_decoder.decode(s)
+/usr/lib/python3.6/json/decoder.py:339: in decode
+    obj, end = self.raw_decode(s, idx=_w(s, 0).end())
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <json.decoder.JSONDecoder object at 0x7fcc3a230da0>, s = 'operation exceeded time limit', idx = 0
+
+    def raw_decode(self, s, idx=0):
+        """Decode a JSON document from ``s`` (a ``str`` beginning with
+        a JSON document) and return a 2-tuple of the Python
+        representation and the index in ``s`` where the document ended.
+    
+        This can be used to decode a JSON document from a string that may
+        have extraneous data at the end.
+    
+        """
+        try:
+            obj, end = self.scan_once(s, idx)
+        except StopIteration as err:
+>           raise JSONDecodeError("Expecting value", s, err.value) from None
+E           json.decoder.JSONDecodeError: Expecting value: line 1 column 1 (char 0)
+
+/usr/lib/python3.6/json/decoder.py:357: JSONDecodeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = ['110851000146103']
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+>           assert termspace_member_count.get(key) == snowstorm.get('memberCountsByReferenceSet').get(key)
+E           assert 5954 == 6010
+E             +5954
+E             -6010
+
+test_termspace_refsets.py:39: AssertionError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '110851000146103',  # Palga
+            '42931000146101'    # Allergen
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+>           assert termspace_member_count.get(key) == snowstorm.get('memberCountsByReferenceSet').get(key)
+E           assert 5954 == 6010
+E             +5954
+E             -6010
+
+test_termspace_refsets.py:42: AssertionError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+>           assert termspace_member_count.get(key) == snowstorm.get('memberCountsByReferenceSet').get(key)
+E           assert 1876 == 2204
+E             +1876
+E             -2204
+
+test_termspace_refsets.py:42: AssertionError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+            # assert termspace_member_count.get(key) == snowstorm.get('memberCountsByReferenceSet').get(key)
+>           pytest.fail('Oepsie')
+E           Failed: Oepsie
+
+test_termspace_refsets.py:44: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+            if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+>               pytest.fail(f"Aantal leden in termspace [{termspace_member_count.get(key)}] en snowstorm [{snowstorm.get('memberCountsByReferenceSet').get(key)}] verschillen")
+E               Failed: Aantal leden in termspace [1876] en snowstorm [2204] verschillen
+
+test_termspace_refsets.py:44: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for key, value in termspace_member_count.items():
+            if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+>               pytest.fail(f"Aantal leden van refset [{key}] in termspace [{termspace_member_count.get(key)}] en snowstorm [{snowstorm.get('memberCountsByReferenceSet').get(key)}] verschillen")
+E               Failed: Aantal leden van refset [42931000146101] in termspace [1876] en snowstorm [2204] verschillen
+
+test_termspace_refsets.py:44: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+    
+        for key, value in termspace_member_count.items():
+            if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+                fails.append(f"Aantal leden van refset [{key}] in termspace [{termspace_member_count.get(key)}] en snowstorm [{snowstorm.get('memberCountsByReferenceSet').get(key)}] verschillen")
+    
+        if len(fails) > 0:
+>           pytest.fail('\n'.join(fails))
+E           Failed: Aantal leden van refset [42931000146101] in termspace [1876] en snowstorm [2204] verschillen
+E           Aantal leden van refset [110851000146103] in termspace [5954] en snowstorm [6010] verschillen
+
+test_termspace_refsets.py:49: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+    
+        for key, value in termspace_member_count.items():
+            if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+                fails.append(f"Aantal leden van refset [{key}] in termspace [{termspace_member_count.get(key)}] en snowstorm [{snowstorm.get('memberCountsByReferenceSet').get(key)}] verschillen")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"[{len(fails)} fouten]: "+'\n'.join(fails))
+E           Failed: [2 fouten]: Aantal leden van refset [42931000146101] in termspace [1876] en snowstorm [2204] verschillen
+E           Aantal leden van refset [110851000146103] in termspace [5954] en snowstorm [6010] verschillen
+
+test_termspace_refsets.py:49: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+        refsets = [
+            '42931000146101',    # Allergen
+            '110851000146103',  # Palga
+            ]
+    
+        termspace_member_count = {}
+    
+        for refset in refsets:
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/'+ refset +'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            termspace_member_count.update({
+                refset : termspace.get('details').get('total')
+            })
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+    
+        for key, value in termspace_member_count.items():
+            if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+                fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"[{len(fails)} fouten]: "+' / '.join(fails))
+E           Failed: [2 fouten]: [refset 42931000146101: termspace 1876 / snowstorm 2204] / [refset 110851000146103: termspace 5954 / snowstorm 6010]
+
+test_termspace_refsets.py:49: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+>       refsets = termspace.last().get('refsets')
+E       AttributeError: 'list' object has no attribute 'last'
+
+test_termspace_refsets.py:28: AttributeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+>       for key, refset in refsets:
+E       ValueError: too many values to unpack (expected 2)
+
+test_termspace_refsets.py:38: ValueError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+>       for key, refset in refsets.items():
+E       AttributeError: 'list' object has no attribute 'items'
+
+test_termspace_refsets.py:38: AttributeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+>               fails.append(f"[{version['effectiveTime']} refset {key}: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+E               NameError: name 'key' is not defined
+
+test_termspace_refsets.py:40: NameError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+                fails.append(f"[{version['effectiveTime']} refset {refset['conceptId']}: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"[{len(fails)} fouten]: "+' / '.join(fails))
+E           Failed: [46 fouten]: [20200930 refset 51000146100: termspace 47 / snowstorm 50] / [20200930 refset 900000000000490003: termspace 376257 / snowstorm 452337] / [20200930 refset 734139008: termspace 323 / snowstorm 326] / [20200930 refset 46231000146109: termspace 4 / snowstorm 5] / [20200930 refset 723264001: termspace 19884 / snowstorm 20163] / [20200930 refset 2551000146109: termspace 201 / snowstorm 218] / [20200930 refset 117701000146105: termspace 26 / snowstorm 33] / [20200930 refset 98061000146100: termspace 813 / snowstorm 870] / [20200930 refset 32321000146103: termspace 147 / snowstorm 156] / [20200930 refset 900000000000497000: termspace 474073 / snowstorm 477950] / [20200930 refset 2581000146104: termspace 4206 / snowstorm 4266] / [20200930 refset 723562003: termspace 115 / snowstorm 128] / [20200930 refset 900000000000526001: termspace 9115 / snowstorm 10348] / [20200930 refset 110851000146103: termspace 5956 / snowstorm 6010] / [20200930 refset 900000000000527005: termspace 44919 / snowstorm 52591] / [20200930 refset 734138000: termspace 14266 / snowstorm 14505] / [20200930 refset 98051000146103: termspace 426 / snowstorm 472] / [20200930 refset 900000000000523009: termspace 38337 / snowstorm 47955] / [20200930 refset 723561005: termspace 129 / snowstorm 147] / [20200930 refset 117721000146102: termspace 432 / snowstorm 433] / [20200930 refset 99051000146107: termspace 168 / snowstorm 169] / [20200930 refset 41000146103: termspace 501 / snowstorm 514] / [20200930 refset 98021000146107: termspace 47 / snowstorm 48] / [20200930 refset 900000000000456007: termspace 220 / snowstorm 230] / [20200930 refset 900000000000524003: termspace 17417 / snowstorm 17519] / [20200930 refset 447562003: termspace 138328 / snowstorm 180624] / [20200930 refset 900000000000530003: termspace 175 / snowstorm 181] / [20200930 refset 900000000000534007: termspace 23 / snowstorm 27] / [20200930 refset 98041000146101: termspace 197 / snowstorm 199] / [20200930 refset 52801000146101: termspace 494 / snowstorm 497] / [20200930 refset 32311000146108: termspace 148 / snowstorm 157] / [20200930 refset 42931000146101: termspace 2042 / snowstorm 2204] / [20200930 refset 52791000146100: termspace 0 / snowstorm 235] / [20200930 refset 11721000146100: termspace 148 / snowstorm 172] / [20200930 refset 8721000146106: termspace 92 / snowstorm 95] / [20200930 refset 117711000146107: termspace 172 / snowstorm 183] / [20200930 refset 723560006: termspace 19 / snowstorm 21] / [20200930 refset 900000000000528000: termspace 21447 / snowstorm 22637] / [20200930 refset 900000000000525002: termspace 0 / snowstorm 5] / [20200930 refset 98011000146102: termspace 204 / snowstorm 211] / [20200930 refset 110901000146106: termspace 26 / snowstorm 27] / [20200930 refset 900000000000531004: termspace 1146 / snowstorm 1809] / [20200930 refset 900000000000489007: termspace 113927 / snowstorm 118585] / [20200930 refset 98031000146109: termspace 6 / snowstorm 7] / [20200930 refset 31451000146105: termspace 119 / snowstorm 126] / [20200930 refset 446608001: termspace 24317 / snowstorm 26877]
+
+test_termspace_refsets.py:48: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+                fails.append(f"[ refset {refset['conceptId']}: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['effectiveTime']}] - [{len(fails)} fouten in {len(refsets)} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200930] - [46 fouten in 64 refsets]: [ refset 51000146100: termspace 47 / snowstorm 50] / [ refset 900000000000490003: termspace 376257 / snowstorm 452337] / [ refset 734139008: termspace 323 / snowstorm 326] / [ refset 46231000146109: termspace 4 / snowstorm 5] / [ refset 723264001: termspace 19884 / snowstorm 20163] / [ refset 2551000146109: termspace 201 / snowstorm 218] / [ refset 117701000146105: termspace 26 / snowstorm 33] / [ refset 98061000146100: termspace 813 / snowstorm 870] / [ refset 32321000146103: termspace 147 / snowstorm 156] / [ refset 900000000000497000: termspace 474073 / snowstorm 477950] / [ refset 2581000146104: termspace 4206 / snowstorm 4266] / [ refset 723562003: termspace 115 / snowstorm 128] / [ refset 900000000000526001: termspace 9115 / snowstorm 10348] / [ refset 110851000146103: termspace 5956 / snowstorm 6010] / [ refset 900000000000527005: termspace 44919 / snowstorm 52591] / [ refset 734138000: termspace 14266 / snowstorm 14505] / [ refset 98051000146103: termspace 426 / snowstorm 472] / [ refset 900000000000523009: termspace 38337 / snowstorm 47955] / [ refset 723561005: termspace 129 / snowstorm 147] / [ refset 117721000146102: termspace 432 / snowstorm 433] / [ refset 99051000146107: termspace 168 / snowstorm 169] / [ refset 41000146103: termspace 501 / snowstorm 514] / [ refset 98021000146107: termspace 47 / snowstorm 48] / [ refset 900000000000456007: termspace 220 / snowstorm 230] / [ refset 900000000000524003: termspace 17417 / snowstorm 17519] / [ refset 447562003: termspace 138328 / snowstorm 180624] / [ refset 900000000000530003: termspace 175 / snowstorm 181] / [ refset 900000000000534007: termspace 23 / snowstorm 27] / [ refset 98041000146101: termspace 197 / snowstorm 199] / [ refset 52801000146101: termspace 494 / snowstorm 497] / [ refset 32311000146108: termspace 148 / snowstorm 157] / [ refset 42931000146101: termspace 2042 / snowstorm 2204] / [ refset 52791000146100: termspace 0 / snowstorm 235] / [ refset 11721000146100: termspace 148 / snowstorm 172] / [ refset 8721000146106: termspace 92 / snowstorm 95] / [ refset 117711000146107: termspace 172 / snowstorm 183] / [ refset 723560006: termspace 19 / snowstorm 21] / [ refset 900000000000528000: termspace 21447 / snowstorm 22637] / [ refset 900000000000525002: termspace 0 / snowstorm 5] / [ refset 98011000146102: termspace 204 / snowstorm 211] / [ refset 110901000146106: termspace 26 / snowstorm 27] / [ refset 900000000000531004: termspace 1146 / snowstorm 1809] / [ refset 900000000000489007: termspace 113927 / snowstorm 118585] / [ refset 98031000146109: termspace 6 / snowstorm 7] / [ refset 31451000146105: termspace 119 / snowstorm 126] / [ refset 446608001: termspace 24317 / snowstorm 26877]
+
+test_termspace_refsets.py:48: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+                fails.append(f"[refset {refset['conceptId']}|{refset['defaultTerm']}|: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['effectiveTime']}] - [{len(fails)} fouten in {len(refsets)} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200930] - [46 fouten in 64 refsets]: [refset 51000146100|simpele referentieset voor doodsoorzakenstatistiek (metadata)|: termspace 47 / snowstorm 50] / [refset 900000000000490003|referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)|: termspace 376257 / snowstorm 452337] / [refset 734139008|Anatomy structure and part association reference set (foundation metadata concept)|: termspace 323 / snowstorm 326] / [refset 46231000146109|Netherlands ordinal test result simple reference set (foundation metadata concept)|: termspace 4 / snowstorm 5] / [refset 723264001|Lateralizable body structure reference set (foundation metadata concept)|: termspace 19884 / snowstorm 20163] / [refset 2551000146109|simpele referentieset voor zeldzame neuromusculaire aandoeningen (metadata)|: termspace 201 / snowstorm 218] / [refset 117701000146105|simpele referentieset voor secties van e-overdracht (metadata)|: termspace 26 / snowstorm 33] / [refset 98061000146100|simpele referentieset voor allergenen uitgezonderd medicatie (metadata)|: termspace 813 / snowstorm 870] / [refset 32321000146103|SNOMED CT to ICF correlated extended map reference set (foundation metadata concept)|: termspace 147 / snowstorm 156] / [refset 900000000000497000|CTV3 simple map reference set (foundation metadata concept)|: termspace 474073 / snowstorm 477950] / [refset 2581000146104|simpele referentieset voor micro-organismen (metadata)|: termspace 4206 / snowstorm 4266] / [refset 723562003|MRCM attribute range international reference set (foundation metadata concept)|: termspace 115 / snowstorm 128] / [refset 900000000000526001|referentieset voor associaties betreffende vervangende concepten (metadata)|: termspace 9115 / snowstorm 10348] / [refset 110851000146103|Dutch pathology simple reference set (foundation metadata concept)|: termspace 5956 / snowstorm 6010] / [refset 900000000000527005|referentieset voor associaties betreffende identieke concepten (foundation metadata concept)|: termspace 44919 / snowstorm 52591] / [refset 734138000|Anatomy structure and entire association reference set (foundation metadata concept)|: termspace 14266 / snowstorm 14505] / [refset 98051000146103|simpele referentieset voor contactallergenen (metadata)|: termspace 426 / snowstorm 472] / [refset 900000000000523009|referentieset voor associaties betreffende mogelijk equivalente concepten (foundation metadata concept)|: termspace 38337 / snowstorm 47955] / [refset 723561005|MRCM attribute domain international reference set (foundation metadata concept)|: termspace 129 / snowstorm 147] / [refset 117721000146102|simpele intensionele referentieset voor implantaten (metadata)|: termspace 432 / snowstorm 433] / [refset 99051000146107|simpele referentieset voor verpleegkundige interventies (metadata)|: termspace 168 / snowstorm 169] / [refset 41000146103|simpele referentieset voor optometrische diagnosen (metadata)|: termspace 501 / snowstorm 514] / [refset 98021000146107|Dutch inhalation allergen simple reference set (foundation metadata concept)|: termspace 47 / snowstorm 48] / [refset 900000000000456007|referentieset met definities van referentiesets (metadata)|: termspace 220 / snowstorm 230] / [refset 900000000000524003|referentieset voor associaties betreffende geëxporteerde concepten (foundation metadata concept)|: termspace 17417 / snowstorm 17519] / [refset 447562003|referentieset met complexe 'mapping' naar ICD-10 (foundation metadata concept)|: termspace 138328 / snowstorm 180624] / [refset 900000000000530003|referentieset voor associaties betreffende alternatieve concepten (foundation metadata concept)|: termspace 175 / snowstorm 181] / [refset 900000000000534007|referentieset met afhankelijkheden tussen modules (metadata)|: termspace 23 / snowstorm 27] / [refset 98041000146101|Dutch occupational allergen simple reference set (foundation metadata concept)|: termspace 197 / snowstorm 199] / [refset 52801000146101|simpele referentieset van landelijk implantatenregister (metadata)|: termspace 494 / snowstorm 497] / [refset 32311000146108|SNOMED CT to Omaha correlated extended map reference set (foundation metadata concept)|: termspace 148 / snowstorm 157] / [refset 42931000146101|Dutch non-drug allergen simple reference set (foundation metadata concept)|: termspace 2042 / snowstorm 2204] / [refset 52791000146100|SNOMED CT naar GMDN mapping voor het landelijk implantatenregister (metadata)|: termspace 0 / snowstorm 235] / [refset 11721000146100|simpele referentieset voor patiëntproblemen (metadata)|: termspace 148 / snowstorm 172] / [refset 8721000146106|simpele referentieset voor optometrische bezoekredenen (metadata)|: termspace 92 / snowstorm 95] / [refset 117711000146107|simpele referentieset voor patiëntproblemen inclusief secties van e-overdracht (metadata)|: termspace 172 / snowstorm 183] / [refset 723560006|MRCM domain international reference set (foundation metadata concept)|: termspace 19 / snowstorm 21] / [refset 900000000000528000|referentieset voor associaties betreffende voormalige ouderconcepten (foundation metadata concept)|: termspace 21447 / snowstorm 22637] / [refset 900000000000525002|referentieset voor associaties betreffende geïmporteerde concepten (foundation metadata concept)|: termspace 0 / snowstorm 5] / [refset 98011000146102|Dutch food allergen simple reference set (foundation metadata concept)|: termspace 204 / snowstorm 211] / [refset 110901000146106|Dutch nursing interventions for suicide simple reference set (foundation metadata concept)|: termspace 26 / snowstorm 27] / [refset 900000000000531004|referentieset voor associaties betreffende verplaatste beschrijvingen (foundation metadata concept)|: termspace 1146 / snowstorm 1809] / [refset 900000000000489007|referentieset met attribuutwaarden voor reden voor deactivatie van concept (foundation metadata concept)|: termspace 113927 / snowstorm 118585] / [refset 98031000146109|Dutch insect venom allergen simple reference set (foundation metadata concept)|: termspace 6 / snowstorm 7] / [refset 31451000146105|SNOMED CT to NANDA correlated map reference set (foundation metadata concept)|: termspace 119 / snowstorm 126] / [refset 446608001|referentieset met eenvoudige 'mapping' naar ICD-O (foundation metadata concept)|: termspace 24317 / snowstorm 26877]
+
+test_termspace_refsets.py:48: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+                fails.append(f"[refset {refset['conceptId']}|{refset['defaultTerm']}|: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['effectiveTime']}] - [{len(fails)} fouten in {len(refsets)} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200930] - [31 fouten in 64 refsets]: [refset 900000000000490003|referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)|: termspace 376257 / snowstorm 385164] / [refset 723264001|Lateralizable body structure reference set (foundation metadata concept)|: termspace 19884 / snowstorm 19877] / [refset 98061000146100|simpele referentieset voor allergenen uitgezonderd medicatie (metadata)|: termspace 813 / snowstorm 856] / [refset 900000000000497000|CTV3 simple map reference set (foundation metadata concept)|: termspace 474073 / snowstorm 477950] / [refset 2581000146104|simpele referentieset voor micro-organismen (metadata)|: termspace 4206 / snowstorm 4209] / [refset 723562003|MRCM attribute range international reference set (foundation metadata concept)|: termspace 115 / snowstorm 122] / [refset 900000000000526001|referentieset voor associaties betreffende vervangende concepten (metadata)|: termspace 9115 / snowstorm 9267] / [refset 110851000146103|Dutch pathology simple reference set (foundation metadata concept)|: termspace 5956 / snowstorm 5954] / [refset 900000000000527005|referentieset voor associaties betreffende identieke concepten (foundation metadata concept)|: termspace 44919 / snowstorm 45043] / [refset 734138000|Anatomy structure and entire association reference set (foundation metadata concept)|: termspace 14266 / snowstorm 14300] / [refset 98051000146103|simpele referentieset voor contactallergenen (metadata)|: termspace 426 / snowstorm 469] / [refset 900000000000523009|referentieset voor associaties betreffende mogelijk equivalente concepten (foundation metadata concept)|: termspace 38337 / snowstorm 40240] / [refset 723561005|MRCM attribute domain international reference set (foundation metadata concept)|: termspace 129 / snowstorm 136] / [refset 117721000146102|simpele intensionele referentieset voor implantaten (metadata)|: termspace 432 / snowstorm 428] / [refset 98021000146107|Dutch inhalation allergen simple reference set (foundation metadata concept)|: termspace 47 / snowstorm 46] / [refset 900000000000456007|referentieset met definities van referentiesets (metadata)|: termspace 220 / snowstorm 228] / [refset 900000000000524003|referentieset voor associaties betreffende geëxporteerde concepten (foundation metadata concept)|: termspace 17417 / snowstorm 17487] / [refset 447562003|referentieset met complexe 'mapping' naar ICD-10 (foundation metadata concept)|: termspace 138328 / snowstorm 139901] / [refset 900000000000534007|referentieset met afhankelijkheden tussen modules (metadata)|: termspace 23 / snowstorm 27] / [refset 52801000146101|simpele referentieset van landelijk implantatenregister (metadata)|: termspace 494 / snowstorm 490] / [refset 42931000146101|Dutch non-drug allergen simple reference set (foundation metadata concept)|: termspace 2042 / snowstorm 1876] / [refset 52791000146100|SNOMED CT naar GMDN mapping voor het landelijk implantatenregister (metadata)|: termspace 0 / snowstorm None] / [refset 11721000146100|simpele referentieset voor patiëntproblemen (metadata)|: termspace 148 / snowstorm 149] / [refset 117711000146107|simpele referentieset voor patiëntproblemen inclusief secties van e-overdracht (metadata)|: termspace 172 / snowstorm 173] / [refset 723560006|MRCM domain international reference set (foundation metadata concept)|: termspace 19 / snowstorm 20] / [refset 900000000000528000|referentieset voor associaties betreffende voormalige ouderconcepten (foundation metadata concept)|: termspace 21447 / snowstorm 21246] / [refset 900000000000525002|referentieset voor associaties betreffende geïmporteerde concepten (foundation metadata concept)|: termspace 0 / snowstorm None] / [refset 98011000146102|Dutch food allergen simple reference set (foundation metadata concept)|: termspace 204 / snowstorm 206] / [refset 900000000000531004|referentieset voor associaties betreffende verplaatste beschrijvingen (foundation metadata concept)|: termspace 1146 / snowstorm 1480] / [refset 900000000000489007|referentieset met attribuutwaarden voor reden voor deactivatie van concept (foundation metadata concept)|: termspace 113927 / snowstorm 116056] / [refset 446608001|referentieset met eenvoudige 'mapping' naar ICD-O (foundation metadata concept)|: termspace 24317 / snowstorm 24319]
+
+test_termspace_refsets.py:48: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        fails = []
+        for refset in refsets:
+            if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+                fails.append(f"[refset {refset['conceptId']}|{refset['defaultTerm']}|: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['effectiveTime']}] - [{len(fails)} fouten in {len(refsets)} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200930] - [31 fouten in 64 refsets]: [refset 900000000000490003|referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)|: termspace 376257 / snowstorm 385164] / [refset 723264001|Lateralizable body structure reference set (foundation metadata concept)|: termspace 19884 / snowstorm 19877] / [refset 98061000146100|simpele referentieset voor allergenen uitgezonderd medicatie (metadata)|: termspace 813 / snowstorm 856] / [refset 900000000000497000|CTV3 simple map reference set (foundation metadata concept)|: termspace 474073 / snowstorm 477950] / [refset 2581000146104|simpele referentieset voor micro-organismen (metadata)|: termspace 4206 / snowstorm 4209] / [refset 723562003|MRCM attribute range international reference set (foundation metadata concept)|: termspace 115 / snowstorm 122] / [refset 900000000000526001|referentieset voor associaties betreffende vervangende concepten (metadata)|: termspace 9115 / snowstorm 9267] / [refset 110851000146103|Dutch pathology simple reference set (foundation metadata concept)|: termspace 5956 / snowstorm 5954] / [refset 900000000000527005|referentieset voor associaties betreffende identieke concepten (foundation metadata concept)|: termspace 44919 / snowstorm 45043] / [refset 734138000|Anatomy structure and entire association reference set (foundation metadata concept)|: termspace 14266 / snowstorm 14300] / [refset 98051000146103|simpele referentieset voor contactallergenen (metadata)|: termspace 426 / snowstorm 469] / [refset 900000000000523009|referentieset voor associaties betreffende mogelijk equivalente concepten (foundation metadata concept)|: termspace 38337 / snowstorm 40240] / [refset 723561005|MRCM attribute domain international reference set (foundation metadata concept)|: termspace 129 / snowstorm 136] / [refset 117721000146102|simpele intensionele referentieset voor implantaten (metadata)|: termspace 432 / snowstorm 428] / [refset 98021000146107|Dutch inhalation allergen simple reference set (foundation metadata concept)|: termspace 47 / snowstorm 46] / [refset 900000000000456007|referentieset met definities van referentiesets (metadata)|: termspace 220 / snowstorm 228] / [refset 900000000000524003|referentieset voor associaties betreffende geëxporteerde concepten (foundation metadata concept)|: termspace 17417 / snowstorm 17487] / [refset 447562003|referentieset met complexe 'mapping' naar ICD-10 (foundation metadata concept)|: termspace 138328 / snowstorm 139901] / [refset 900000000000534007|referentieset met afhankelijkheden tussen modules (metadata)|: termspace 23 / snowstorm 27] / [refset 52801000146101|simpele referentieset van landelijk implantatenregister (metadata)|: termspace 494 / snowstorm 490] / [refset 42931000146101|Dutch non-drug allergen simple reference set (foundation metadata concept)|: termspace 2042 / snowstorm 1876] / [refset 52791000146100|SNOMED CT naar GMDN mapping voor het landelijk implantatenregister (metadata)|: termspace 0 / snowstorm None] / [refset 11721000146100|simpele referentieset voor patiëntproblemen (metadata)|: termspace 148 / snowstorm 149] / [refset 117711000146107|simpele referentieset voor patiëntproblemen inclusief secties van e-overdracht (metadata)|: termspace 172 / snowstorm 173] / [refset 723560006|MRCM domain international reference set (foundation metadata concept)|: termspace 19 / snowstorm 20] / [refset 900000000000528000|referentieset voor associaties betreffende voormalige ouderconcepten (foundation metadata concept)|: termspace 21447 / snowstorm 21246] / [refset 900000000000525002|referentieset voor associaties betreffende geïmporteerde concepten (foundation metadata concept)|: termspace 0 / snowstorm None] / [refset 98011000146102|Dutch food allergen simple reference set (foundation metadata concept)|: termspace 204 / snowstorm 206] / [refset 900000000000531004|referentieset voor associaties betreffende verplaatste beschrijvingen (foundation metadata concept)|: termspace 1146 / snowstorm 1480] / [refset 900000000000489007|referentieset met attribuutwaarden voor reden voor deactivatie van concept (foundation metadata concept)|: termspace 113927 / snowstorm 116056] / [refset 446608001|referentieset met eenvoudige 'mapping' naar ICD-O (foundation metadata concept)|: termspace 24317 / snowstorm 24319]
+
+test_termspace_refsets.py:48: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+>           pytest.fail(refset)
+E           Failed: 51000146100
+
+test_termspace_refsets.py:38: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            # refset = refset conceptid
+            # req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/98011000146102/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            # snowstorm = json.loads(urlopen(req).read())
+    
+>           pytest.fail(version)
+
+test_termspace_refsets.py:42: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <[AttributeError("'Failed' object has no attribute 'msg'",) raised in repr()] Failed object at 0x7fd6b409d5e8>, msg = {'_id': '5e783ae4321beb47c437f90a', 'collectionName': '20200331', 'databaseName': 'nl-edition', 'defaultTermLangCode': 'nl', ...}, pytrace = True
+
+    def __init__(self, msg: Optional[str] = None, pytrace: bool = True) -> None:
+        if msg is not None and not isinstance(msg, str):
+            error_msg = (  # type: ignore[unreachable]
+                "{} expected string as 'msg' parameter, got '{}' instead.\n"
+                "Perhaps you meant to use a mark?"
+            )
+>           raise TypeError(error_msg.format(type(self).__name__, type(msg).__name__))
+E           TypeError: Failed expected string as 'msg' parameter, got 'dict' instead.
+E           Perhaps you meant to use a mark?
+
+/usr/local/lib/python3.6/dist-packages/_pytest/outcomes.py:35: TypeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            # refset = refset conceptid
+            # req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/98011000146102/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            # snowstorm = json.loads(urlopen(req).read())
+    
+>           pytest.fail(version['effectiveTime'])
+E           Failed: 20200930
+
+test_termspace_refsets.py:42: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            # refset = refset conceptid
+            # req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v20200331/concepts/98011000146102/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            # snowstorm = json.loads(urlopen(req).read())
+    
+>           pytest.fail('v'+version['collectionName'])
+E           Failed: v20200331
+
+test_termspace_refsets.py:42: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/refset/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            result = json.loads(urlopen(req).read())
+>           if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+E           KeyError: 'total'
+
+test_termspace_refsets.py:42: KeyError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            result = json.loads(urlopen(req).read())
+>           if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+E           KeyError: 'total'
+
+test_termspace_refsets.py:42: KeyError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            req = Request('https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token)
+            result = json.loads(urlopen(req).read())
+            print(result)
+>           if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+E           KeyError: 'total'
+
+test_termspace_refsets.py:43: KeyError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token
+            req = Request(url)
+            result = json.loads(urlopen(req).read())
+            print(result)
+>           if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+E           KeyError: 'total'
+
+test_termspace_refsets.py:44: KeyError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token
+            print(url)
+            req = Request(url)
+            result = json.loads(urlopen(req).read())
+            print(result)
+>           if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+E           KeyError: 'total'
+
+test_termspace_refsets.py:45: KeyError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+        # snowstorm_member_count = snowstorm.get('memberCountsByReferenceSet').get(refset)
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            try:
+                url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token
+                print(url)
+                req = Request(url)
+                result = json.loads(urlopen(req).read())
+                print(result)
+                if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+                    fails.append(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+            except:
+                print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+                continue
+    
+    
+    
+    
+    
+        # for refset in refsets:
+        #     if snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId']) != refset['count']:
+        #         fails.append(f"[refset {refset['conceptId']}|{refset['defaultTerm']}|: termspace {refset['count']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset['conceptId'])}]")
+    
+    
+        # for key, value in termspace_member_count.items():
+        #     if termspace_member_count.get(key) != snowstorm.get('memberCountsByReferenceSet').get(key):
+        #         fails.append(f"[refset {key}: termspace {termspace_member_count.get(key)} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(key)}]")
+    
+>       if len(fails) > 0:
+E       Failed: Version [20200930] - [11 fouten in 64 refsets]: [refset 723562003: termspace 118 / snowstorm 122] / [refset 900000000000526001: termspace 9272 / snowstorm 9267] / [refset 900000000000527005: termspace 45009 / snowstorm 45043] / [refset 98051000146103: termspace 473 / snowstorm 469] / [refset 900000000000523009: termspace 26058 / snowstorm 40240] / [refset 723561005: termspace 118 / snowstorm 136] / [refset 900000000000456007: termspace 99 / snowstorm 228] / [refset 900000000000530003: termspace 159 / snowstorm 175] / [refset 900000000000534007: termspace 3 / snowstorm 27] / [refset 900000000000528000: termspace 21021 / snowstorm 21246] / [refset 723563008: termspace 3 / snowstorm 9]
+
+test_termspace_refsets.py:65: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            try:
+                url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token
+                req = Request(url)
+                result = json.loads(urlopen(req).read())
+                if result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset):
+                    fails.append(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+            except KeyError:
+                print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+            except Exception as e:
+                fails.append(f"Onbekende fout: {e}")
+>       if len(fails) > 0:
+E       Failed: Version [20200930] - [12 fouten in 64 refsets]: [refset 723562003: termspace 118 / snowstorm 122] / [refset 900000000000526001: termspace 9272 / snowstorm 9267] / [refset 900000000000527005: termspace 45009 / snowstorm 45043] / [refset 98051000146103: termspace 473 / snowstorm 469] / [refset 900000000000523009: termspace 26058 / snowstorm 40240] / [refset 723561005: termspace 118 / snowstorm 136] / [refset 900000000000456007: termspace 99 / snowstorm 228] / [refset 900000000000530003: termspace 159 / snowstorm 175] / [refset 900000000000534007: termspace 3 / snowstorm 27] / [refset 900000000000528000: termspace 21021 / snowstorm 21246] / [refset 723563008: termspace 3 / snowstorm 9] / [refset 446608001: termspace 24185 / snowstorm 24319]
+
+test_termspace_refsets.py:49: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+        # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+        uitzonderingen = [
+            '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+            '15551000146102',       # ? geen FSN en bevat niets
+            '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+            '762103008',            # OWL ontology reference set (foundation metadata concept)
+            '733073007',            # OWL axiom reference set (foundation metadata concept)
+            '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+            '467614008',            # GMDN simple map reference set (foundation metadata concept)
+            '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+            '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+            '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+            '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+            '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+            '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+            '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+            '900000000000523009',   # historical poss eq
+            '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+            '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+        ]
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            try:
+                url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId=112&paginate=1&access_token='+token
+                req = Request(url)
+                result = json.loads(urlopen(req).read())
+                if (refset not in uitzonderingen) & (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                    fails.append(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+            except KeyError:
+                print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+            except Exception as e:
+                fails.append(f"Onbekende fout: {e}")
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['collectionName']}] - [{len(fails)} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200331] - [12 fouten in 70 refsets]: Onbekende fout: Expecting value: line 1 column 1 (char 0) / [refset 900000000000526001: termspace 9272 / snowstorm 9267] / [refset 900000000000527005: termspace 45009 / snowstorm 45043] / [refset 98051000146103: termspace 473 / snowstorm 469] / [refset 900000000000456007: termspace 99 / snowstorm 228] / Onbekende fout: Expecting value: line 1 column 1 (char 0) / [refset 900000000000530003: termspace 159 / snowstorm 175] / [refset 900000000000534007: termspace 3 / snowstorm 27] / [refset 900000000000528000: termspace 21021 / snowstorm 21246] / Onbekende fout: HTTP Error 504: Gateway Time-out / [refset 723563008: termspace 3 / snowstorm 9] / [refset 446608001: termspace 24185 / snowstorm 24319]
+
+test_termspace_refsets.py:71: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+        path = '112'
+    
+        # Get refset member counts termspace
+        req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+        termspace = json.loads(urlopen(req).read())
+        version = termspace[-1]
+        refsets = version.get('refsets')
+    
+        # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+        uitzonderingen = [
+            '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+            '15551000146102',       # ? geen FSN en bevat niets
+            '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+            '762103008',            # OWL ontology reference set (foundation metadata concept)
+            '733073007',            # OWL axiom reference set (foundation metadata concept)
+            '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+            '467614008',            # GMDN simple map reference set (foundation metadata concept)
+            '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+            '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+            '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+            '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+            '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+            '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+            '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+            '900000000000523009',   # historical poss eq
+            '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+            '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+            '900000000000526001',   # Replaced by
+            '900000000000527005',   # Same as
+            '900000000000456007',   # Reference set descriptor reference set (foundation metadata concept)
+            '900000000000530003',   # Alternative
+            '900000000000534007',   # Module dependency refset
+            '900000000000528000',   # Was a
+            '723563008',            # MRCM module scope reference set (foundation metadata concept)
+            '446608001',            # ICD-O simple map reference set (foundation metadata concept)
+        ]
+    
+        fails = []
+    
+        req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+        snowstorm = json.loads(urlopen(req).read())
+    
+        for refset in snowstorm.get('memberCountsByReferenceSet'):
+            ## refset = refset conceptid
+            try:
+                url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId='+path+'&paginate=1&access_token='+token
+                req = Request(url)
+                result = json.loads(urlopen(req).read())
+                if (refset not in uitzonderingen) and (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                    fails.append(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+            except KeyError:
+                print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+            except Exception as e:
+                fails.append(f"Onbekende fout: {e}")
+        if len(fails) > 0:
+>           pytest.fail(f"Version [{version['collectionName']}] - [{len(fails)} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]: "+' / '.join(fails))
+E           Failed: Version [20200331] - [4 fouten in 70 refsets]: Onbekende fout: Expecting value: line 1 column 1 (char 0) / [refset 98051000146103: termspace 473 / snowstorm 469] / Onbekende fout: Expecting value: line 1 column 1 (char 0) / Onbekende fout: HTTP Error 504: Gateway Time-out
+
+test_termspace_refsets.py:80: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_retrieve_token():
+        payload = {
+            'username' : os.getenv('termspace_bot_user'),
+            'password' : os.getenv('termspace_bot_pass'),
+            }
+        data = parse.urlencode(payload).encode('ascii')
+        req = Request('https://nl-prod-main.termspace.com/api/users/login', data)
+>       with urlopen(req) as response:
+
+test_termspace_refsets.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+/usr/lib/python3.6/urllib/request.py:223: in urlopen
+    return opener.open(url, data, timeout)
+/usr/lib/python3.6/urllib/request.py:532: in open
+    response = meth(req, response)
+/usr/lib/python3.6/urllib/request.py:642: in http_response
+    'http', request, response, code, msg, hdrs)
+/usr/lib/python3.6/urllib/request.py:570: in error
+    return self._call_chain(*args)
+/usr/lib/python3.6/urllib/request.py:504: in _call_chain
+    result = func(*args)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <urllib.request.HTTPDefaultErrorHandler object at 0x7f7410b4e6a0>, req = <urllib.request.Request object at 0x7f741039b860>, fp = <http.client.HTTPResponse object at 0x7f741039bb00>, code = 504, msg = 'Gateway Time-out', hdrs = <http.client.HTTPMessage object at 0x7f741039bd30>
+
+    def http_error_default(self, req, fp, code, msg, hdrs):
+>       raise HTTPError(req.full_url, code, msg, hdrs, fp)
+E       urllib.error.HTTPError: HTTP Error 504: Gateway Time-out
+
+/usr/lib/python3.6/urllib/request.py:650: HTTPError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+        if not token:
+            pytest.fail("Geen token ontvangen")
+        else:
+            path = '112'
+    
+            # Get refset member counts termspace
+            req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            version = termspace[-1]
+            print(f"Testen met versie {version}")
+            refsets = version.get('refsets')
+    
+            # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+            uitzonderingen = [
+                '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+                '15551000146102',       # ? geen FSN en bevat niets
+                '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+                '762103008',            # OWL ontology reference set (foundation metadata concept)
+                '733073007',            # OWL axiom reference set (foundation metadata concept)
+                '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+                '467614008',            # GMDN simple map reference set (foundation metadata concept)
+                '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+                '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+                '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+                '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+                '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+                '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+                '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+                '900000000000523009',   # historical poss eq
+                '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+                '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+                '900000000000526001',   # Replaced by
+                '900000000000527005',   # Same as
+                '900000000000456007',   # Reference set descriptor reference set (foundation metadata concept)
+                '900000000000530003',   # Alternative
+                '900000000000534007',   # Module dependency refset
+                '900000000000528000',   # Was a
+                '723563008',            # MRCM module scope reference set (foundation metadata concept)
+                '446608001',            # ICD-O simple map reference set (foundation metadata concept)
+            ]
+    
+            failed = False
+    
+            req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+            snowstorm = json.loads(urlopen(req).read())
+    
+            for refset in snowstorm.get('memberCountsByReferenceSet'):
+                ## refset = refset conceptid
+                try:
+                    url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId='+path+'&paginate=1&access_token='+token
+                    req = Request(url)
+                    result = json.loads(urlopen(req).read())
+                    if (refset not in uitzonderingen) and (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                        print(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+                        failed = True
+                except KeyError:
+                    print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+                except Exception as e:
+                    print(f"Onbekende fout: {str(e)}")
+                    print(f"URL = {url} / refset = {refset}")
+                    failed = True
+            if failed:
+>               pytest.fail(f"Version [{version['collectionName']}] - [{len(fails)} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]")
+E               NameError: name 'fails' is not defined
+
+test_termspace_refsets.py:87: NameError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+        if not token:
+            pytest.fail("Geen token ontvangen")
+        else:
+            path = '112'
+    
+            # Get refset member counts termspace
+            req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            version = termspace[-1]
+            print(f"Testen met versie {version['collectionName']} / path {path}")
+            refsets = version.get('refsets')
+    
+            # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+            uitzonderingen = [
+                '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+                '15551000146102',       # ? geen FSN en bevat niets
+                '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+                '762103008',            # OWL ontology reference set (foundation metadata concept)
+                '733073007',            # OWL axiom reference set (foundation metadata concept)
+                '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+                '467614008',            # GMDN simple map reference set (foundation metadata concept)
+                '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+                '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+                '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+                '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+                '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+                '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+                '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+                '900000000000523009',   # historical poss eq
+                '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+                '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+                '900000000000526001',   # Replaced by
+                '900000000000527005',   # Same as
+                '900000000000456007',   # Reference set descriptor reference set (foundation metadata concept)
+                '900000000000530003',   # Alternative
+                '900000000000534007',   # Module dependency refset
+                '900000000000528000',   # Was a
+                '723563008',            # MRCM module scope reference set (foundation metadata concept)
+                '446608001',            # ICD-O simple map reference set (foundation metadata concept)
+            ]
+    
+            failed = False
+            fails = 0
+    
+            req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+            snowstorm = json.loads(urlopen(req).read())
+    
+            for refset in snowstorm.get('memberCountsByReferenceSet'):
+                ## refset = refset conceptid
+                try:
+                    if (refset not in uitzonderingen):
+                        url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId='+path+'&paginate=1&access_token='+token
+                        req = Request(url)
+                        result = json.loads(urlopen(req).read())
+                        if (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                            print(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+                            failed = True
+                            fails += 1
+                except KeyError:
+                    print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+                    failed = True
+                    fails += 1
+                except Exception as e:
+                    print(f"Onbekende fout: {str(e)}")
+                    print(f"URL = {url} / refset = {refset}")
+                    failed = True
+                    fails +=1
+            if failed:
+>               pytest.fail(f"Version [{version['collectionName']}] - [{len(fails)} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]")
+E               TypeError: object of type 'int' has no len()
+
+test_termspace_refsets.py:93: TypeError
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+        if not token:
+            pytest.fail("Geen token ontvangen")
+        else:
+            path = '112'
+    
+            # Get refset member counts termspace
+            req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            version = termspace[-1]
+            print(f"Testen met versie {version['collectionName']} / path {path}")
+            refsets = version.get('refsets')
+    
+            # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+            uitzonderingen = [
+                '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+                '15551000146102',       # ? geen FSN en bevat niets
+                '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+                '762103008',            # OWL ontology reference set (foundation metadata concept)
+                '733073007',            # OWL axiom reference set (foundation metadata concept)
+                '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+                '467614008',            # GMDN simple map reference set (foundation metadata concept)
+                '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+                '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+                '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+                '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+                '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+                '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+                '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+                '900000000000523009',   # historical poss eq
+                '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+                '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+                '900000000000526001',   # Replaced by
+                '900000000000527005',   # Same as
+                '900000000000456007',   # Reference set descriptor reference set (foundation metadata concept)
+                '900000000000530003',   # Alternative
+                '900000000000534007',   # Module dependency refset
+                '900000000000528000',   # Was a
+                '723563008',            # MRCM module scope reference set (foundation metadata concept)
+                '446608001',            # ICD-O simple map reference set (foundation metadata concept)
+            ]
+    
+            failed = False
+            fails = 0
+    
+            req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+            snowstorm = json.loads(urlopen(req).read())
+    
+            for refset in snowstorm.get('memberCountsByReferenceSet'):
+                ## refset = refset conceptid
+                try:
+                    if (refset not in uitzonderingen):
+                        url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId='+path+'&paginate=1&access_token='+token
+                        req = Request(url)
+                        result = json.loads(urlopen(req).read())
+                        if (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                            print(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+                            failed = True
+                            fails += 1
+                except KeyError:
+                    print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+                    failed = True
+                    fails += 1
+                except Exception as e:
+                    print(f"Onbekende fout: {str(e)}")
+                    print(f"URL = {url} / refset = {refset}")
+                    failed = True
+                    fails +=1
+            if failed:
+>               pytest.fail(f"Version [{version['collectionName']}] - [{fails} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]")
+E               Failed: Version [20200331] - [1 fouten in 70 refsets]
+
+test_termspace_refsets.py:93: Failed
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+def test_termspace_devPath_refsetCount_onlyActive():
+        token = test_retrieve_token()
+    
+        if not token:
+            pytest.fail("Geen token ontvangen")
+        else:
+            path = '112'
+    
+            # Get refset member counts termspace
+            req = Request('https://nl-prod-main.termspace.com/api/server/releases?access_token='+token)
+            termspace = json.loads(urlopen(req).read())
+            version = termspace[-1]
+            print(f"Testen met versie {version['collectionName']} / path {path}")
+            refsets = version.get('refsets')
+    
+            # Lijst met refsets die niet door NL beheerd worden of niet in termspace staan
+            uitzonderingen = [
+                '900000000000490003',   # referentieset met attribuutwaarden voor reden voor deactivatie van beschrijving (metadata)
+                '15551000146102',       # ? geen FSN en bevat niets
+                '900000000000497000',   # CTV3 simple map reference set (foundation metadata concept)
+                '762103008',            # OWL ontology reference set (foundation metadata concept)
+                '733073007',            # OWL axiom reference set (foundation metadata concept)
+                '900000000000498005',   # SNOMED RT identifier simple map (foundation metadata concept)
+                '467614008',            # GMDN simple map reference set (foundation metadata concept)
+                '447562003',            # ICD-10 complex map reference set (foundation metadata concept)
+                '900000000000509007',   # Amerikaans-Engelse taalreferentieset (metadata)
+                '31000146106',          # Nederlandse taalreferentieset (foundation metadata concept)
+                '900000000000531004',   # REFERS TO concept association reference set (foundation metadata concept)
+                '900000000000489007',   # Concept inactivation indicator attribute value reference set (foundation metadata concept)
+                '900000000000508004',   # Brits-Engelse taalreferentieset (foundation metadata concept)
+    
+                '723562003',            # MRCM attribute range international reference set (foundation metadata concep
+                '900000000000523009',   # historical poss eq
+                '723561005',            # MRCM attribute domain international reference set (foundation metadata concept)
+                '90000000000045600',    # MRCM attribute domain international reference set (foundation metadata concept)
+                '900000000000526001',   # Replaced by
+                '900000000000527005',   # Same as
+                '900000000000456007',   # Reference set descriptor reference set (foundation metadata concept)
+                '900000000000530003',   # Alternative
+                '900000000000534007',   # Module dependency refset
+                '900000000000528000',   # Was a
+                '723563008',            # MRCM module scope reference set (foundation metadata concept)
+                '446608001',            # ICD-O simple map reference set (foundation metadata concept)
+            ]
+    
+            failed = False
+            fails = 0
+    
+            req = Request('https://snowstorm.test-nictiz.nl/browser/MAIN%2FSNOMEDCT-NL/members?active=true&offset=0&limit=1')
+            snowstorm = json.loads(urlopen(req).read())
+    
+            for refset in snowstorm.get('memberCountsByReferenceSet'):
+                ## refset = refset conceptid
+                try:
+                    if (refset not in uitzonderingen):
+                        url = 'https://nl-prod-main.termspace.com/api/snomed/nl-edition/v'+version['collectionName']+'/concepts/'+refset+'/members?limit=1&pathId='+path+'&paginate=1&access_token='+token
+                        req = Request(url)
+                        result = json.loads(urlopen(req).read())
+                        if (result['details']['total'] != snowstorm.get('memberCountsByReferenceSet').get(refset)):
+                            print(f"[refset {refset}: termspace {result['details']['total']} / snowstorm {snowstorm.get('memberCountsByReferenceSet').get(refset)}]")
+                            failed = True
+                            fails += 1
+                except KeyError:
+                    print(f"Kon {refset} niet testen - niet aanwezig in Termspace")
+                    failed = True
+                    fails += 1
+                except Exception as e:
+                    print(f"Onbekende fout: {str(e)}")
+                    print(f"URL = {url} / refset = {refset}")
+                    failed = True
+                    fails +=1
+            if failed:
+>               pytest.fail(f"Version [{version['collectionName']}] - [{fails} fouten in {len(snowstorm.get('memberCountsByReferenceSet'))} refsets]")
+E               Failed: Version [20200331] - [1 fouten in 70 refsets]
+
+test_termspace_refsets.py:93: Failed
+

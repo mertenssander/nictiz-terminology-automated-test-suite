@@ -127,3 +127,6 @@ dmypy.json
 # Pytest folders
 .pytest_cache
 __pycache__
+
+# Local files
+run.sh
